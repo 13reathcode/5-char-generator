@@ -4,27 +4,29 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <link rel="stylesheet" href="style.css" />
         <script defer src="script.js"></script>
-        <title>Modern JavaScript Development: Modules and Tooling</title>
-        <style>
-            body {
-                height: 100vh;
-                display: flex;
-                align-items: center;
-                background: linear-gradient(to top left, #03294c, #5294ff);
-            }
-            h1 {
-                font-family: sans-serif;
-                font-size: 50px;
-                line-height: 1.3;
-                width: 100%;
-                padding: 30px;
-                text-align: center;
-                color: white;
-            }
-        </style>
+        <title>5-char-generator-task</title>
     </head>
     <body>
-        <h1 id="soulQ">Wait 3 seconds...</h1>
+        <button class="show-modal">?</button>
+
+        <div class="modal hidden">
+            <button class="close-modal">&times;</button>
+            <h2 class="modal-heading">Problem info</h2>
+            <p class="modal-text">
+                Ваша задача создать генератор случайных строк. Каждое значение должно состоять из 5 символов.<br />
+                Настройте генерацию и отображение значений через каждую секунду.<br />
+                При отображения отображении значения пользователю выполните следующие условия:<br /><br />
+                1. Если созданное значение является палиндромом отобразите его красным цветом.<br />
+                2. Если созданное значение состоит только из цифр отобразите его синим цветом<br />
+                3. Если созданное содержит 0 не отображайте его вовсе.
+            </p>
+        </div>
+
+        <div class="overlay hidden"></div>
+
+        <h3 id="output">Wait for 1 second</h3>
+        
     </body>
 </html>

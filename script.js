@@ -1,38 +1,68 @@
-"strict";
-/*
-Ваша задача создать генератор случайных строк. Каждое значение должно состоять из 5 символов. 
-Настройте генерацию и отображение значений через каждые 3 секунды. 
+'strict';
 
-При отображения отображении значения пользователю  выполните следующие условия:
-1) если созданное значение является палиндромом отобразите его красным цветом;
-2) если созданное значение состоит только из цифр отобразите его синим цветом;
-3) если созданное содержит 0 не отображайте его вовсе.
-*/
+// ELEMENTS
+const modal = document.querySelector('.modal');
+const overlay = document.querySelector('.overlay');
+
+const btnCloseModal = document.querySelector('.close-modal');
+const btnOpenModal = document.querySelector('.show-modal');
+
+let interval = 1000;
 
 ////////////////////////////////////////
 // Functions
 
-const changeColor = (value, str) =>
-  (document.getElementById("soulQ").innerHTML = str.fontcolor(value));
+// FAQ / MODAL WINDOW
 
-const changeText = (str) =>
-  (document.getElementById("soulQ").textContent = str);
-
-const Soulq = function () {
-  // Generating a random number
-  let string = Math.random().toString(36).slice(2, 7);
-  // Logging to console
-  console.log(string);
-  // If not #3 then continue
-  if (!string.includes(0)) {
-    changeText(string);
-    // Now check #2 and #1
-    // Checking if string consists of all digits
-    if (/^\d+$/.test(string)) return changeColor("blue", string);
-    // Checking if it is palindome
-    if (string.slice(0, 2) === string.slice(-2).split("").reverse().join(""))
-      changeColor("red", string);
-  } else changeText("There was zero");
+const closeModal = function () {
+    modal.classList.add('hidden');
+    overlay.classList.add('hidden');
 };
 
-setInterval(Soulq, 3000);
+const openModal = function () {
+    modal.classList.remove('hidden');
+    overlay.classList.remove('hidden');
+};
+
+// ---------- Open modal ----------
+
+// On click
+btnOpenModal.addEventListener('click', openModal);
+
+// ---------- Closing modal ----------
+
+// By pressing on X
+btnCloseModal.addEventListener('click', closeModal);
+
+// By pressing on overlay
+overlay.addEventListener('click', closeModal);
+
+// By pressing ESCAPE button
+document.addEventListener('keydown', function (button) {
+    if (button.key === 'Escape' && !modal.classList.contains('hidden')) closeModal();
+});
+
+// MAIN PROGRAME LOGIC
+
+const label = document.getElementById('output');
+
+const changeColor = (value, str) => (label.innerHTML = str.fontcolor(value));
+
+const changeText = (str) => (label.textContent = str);
+
+const labelLogic = function () {
+    // Generating a random number
+    let string = Math.random().toString(36).slice(2, 7);
+
+    // If not #3 then continue
+    if (!string.includes(0)) {
+        changeText(string);
+        // Now check #2 and #1
+        // Checking if string consists of all digits
+        if (/^\d+$/.test(string)) return changeColor('blue', string);
+        // Checking if it is palindome
+        if (string.slice(0, 2) === string.slice(-2).split('').reverse().join('')) changeColor('red', string);
+    } else changeText('There was zero');
+};
+
+setInterval(labelLogic, interval);
