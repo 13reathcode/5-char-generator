@@ -1,7 +1,17 @@
-## Ваша задача создать генератор случайных строк. Каждое значение должно состоять из 5 символов.
+# 5-character-generator 
 
-### Настройте генерацию и отображение значений через каждую секунду. При отображения отображении значения пользователю выполните следующие условия:
+## In order for this to work you need to follow these steps:
 
-1. Если созданное значение является палиндромом отобразите его красным цветом
-2. Если созданное значение состоит только из цифр отобразите его синим цветом
-3. Если созданное содержит 0 не отображайте его вовсе.
+1. Install node-sass with dev. dependecies (If you wanna change something) or simply --save (-S).
+
+    `npm i node-sass -D`
+
+2. Install live-server (optinal) locally or globaly (i prefer this).
+
+    `npm i live-server -g`
+
+3. Run both scripts writing command bellow | If you skipped step №2 then just write second command
+
+    First: `npm run start` Second: `npm run watch:sass`
+
+## Also look into my other projects^^
