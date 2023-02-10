@@ -1,4 +1,4 @@
-# 5-character-generator 
+# 5-character-generator | [demo](https://5-char-generator-13reath.netlify.app/)
 
 ## In order for this to work you need to follow these steps:
 
