@@ -1,31 +1,38 @@
 <!DOCTYPE html>
+
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <link rel="stylesheet" href="style.css" />
-        <script defer src="script.js"></script>
+
+        <link rel="stylesheet" href="css/style.css" />
+        <script defer src="js/script.js"></script>
+
         <title>5-char-generator-task</title>
     </head>
     <body>
-        <button class="show-modal">?</button>
+        <div class="modal">
+            <button class="modal--show">?</button>
 
-        <div class="modal hidden">
-            <button class="close-modal">&times;</button>
-            <h2 class="modal-heading">Problem info</h2>
-            <p class="modal-text">
-                Ваша задача создать генератор случайных строк. Каждое значение должно состоять из 5 символов.<br />
-                Настройте генерацию и отображение значений через каждую секунду.<br />
-                При отображения отображении значения пользователю выполните следующие условия:<br /><br />
-                1. Если созданное значение является палиндромом отобразите его красным цветом.<br />
-                2. Если созданное значение состоит только из цифр отобразите его синим цветом<br />
-                3. Если созданное содержит 0 не отображайте его вовсе.
-            </p>
+            <div class="modal-box hidden">
+                <button class="modal--close">&times;</button>
+                <h2 class="modal__heading">Problem info</h2>
+                <!-- prettier-ignore -->
+                <p class="modal__text">
+                    Ваша задача создать генератор случайных строк. Каждое значение должно состоять из 5 символов.
+                    Настройте генерацию и отображение значений через каждую секунду.
+                    При отображения отображении значения пользователю выполните следующие условия:
+
+                    1. Если созданное значение является палиндромом отобразите его красным цветом.
+                    2. Если созданное значение состоит только из цифр отобразите его синим цветом
+                    3. Если созданное содержит 0 не отображайте его вовсе.
+                </p>
+            </div>
+
+            <h1 class="modal__heading" id="output">Wait for 1 second</h1>
+
+            <div class="modal__overlay hidden"></div>
         </div>
-
-        <div class="overlay hidden"></div>
-
-        <h3 id="output">Wait for 1 second</h3>
     </body>
 </html>
